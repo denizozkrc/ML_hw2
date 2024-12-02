@@ -25,7 +25,7 @@ class KNN:
 
         number_of_training_samples = np.shape(self.dataset)[0]
         for sample_num in range(number_of_training_samples):
-            dist = self.similarity_function(instance, self.dataset[sample_num], self.similarity_function_parameters) if (self.similarity_function_parameters) else self.similarity_function(instance, self.dataset[sample_num])
+            dist = self.similarity_function(instance, self.dataset[sample_num], self.similarity_function_parameters)  # if (self.similarity_function_parameters) else self.similarity_function(instance, self.dataset[sample_num])
             if dist < closest_data_points_distances[index_of_max_distance]:
                 closest_data_point_indexes[index_of_max_distance] = sample_num
                 closest_data_points_distances[index_of_max_distance] = dist
@@ -38,5 +38,6 @@ class KNN:
             occurence = np.count_nonzero(compare_array == closest_data_points_labels)
             if occurence > max_number_of_label:
                 label = closest_data_points_labels[i]
+                max_number_of_label = occurence
 
         return label

@@ -4,7 +4,7 @@ import math
 
 class Distance:
     @staticmethod
-    def calculateCosineDistance(x, y):
+    def calculateCosineDistance(x, y, params_none):
         return 1-((np.dot(x, y))/(np.linalg.norm(x)*np.linalg.norm(y)))
 
     @staticmethod
@@ -18,4 +18,5 @@ class Distance:
 
     @staticmethod
     def calculateMahalanobisDistance(x, y, S_minus_1):
-        return math.sqrt(np.matmul(np.matmul(np.transpose(x-y), S_minus_1), x-y))
+        mah = math.sqrt(np.dot(np.dot(np.transpose(x-y), S_minus_1), x-y))
+        return mah
