@@ -88,9 +88,6 @@ class AutoEncoder:
             loss.backward()
             self.optimizer.step()
 
-            if (epoch + 1) % 100 == 0:
-                print(f'Epoch [{epoch + 1}/{self.iteration_count}], Loss: {loss.item():.6f}')
-
     def transform(self, x: torch.Tensor) -> torch.Tensor:
         """
         After training the nn a given dataset,

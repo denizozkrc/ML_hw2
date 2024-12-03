@@ -49,5 +49,4 @@ def dimReductionFourMethods(dataset):
     scatter_plot(umap_dataset, KMeans(n_clusters=3).fit_predict(umap_dataset), "UMAP: Dataset 2")
 
 
-
 dimReductionFourMethods(dataset1)

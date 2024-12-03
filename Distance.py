@@ -9,11 +9,6 @@ class Distance:
 
     @staticmethod
     def calculateMinkowskiDistance(x, y, p=2):
-        """dim = np.shape(x)[1]
-        sum = 0
-        for i in range(dim):
-            sum += math.pow(abs(x[i]-y[i]), p)
-        return math.pow(sum, 1/p)"""
         return np.power(np.sum(np.abs(x - y) ** p), 1 / p)
 
     @staticmethod
