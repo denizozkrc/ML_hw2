@@ -4,8 +4,6 @@ from Part1.Knn import KNN
 from sklearn.model_selection import RepeatedStratifiedKFold
 from sklearn.metrics import accuracy_score
 import numpy as np
-import scipy.stats as st
-
 # the data is already preprocessed
 dataset, labels = pickle.load(open("datasets/part1_dataset.data", "rb"))
 
