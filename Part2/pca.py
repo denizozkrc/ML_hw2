@@ -20,7 +20,10 @@ class PCA:
         this function should assign the resulting projection matrix to self.projection_matrix
         """
         # standardized , meaning mean of 0 and a standard deviation of 1
-        x_standardized = (x - np.mean(x, axis=0)) / np.std(x, axis=0)
+        mean = np.mean(x, axis=0)
+        std = np.std(x, axis=0)
+        std[std == 0] = 1  # div by 0 caused some problmes
+        x_standardized = (x - mean) / std
         covariance_matrix = np.cov(x_standardized, rowvar=False)  # cov matrix
         eigenvalues, eigenvectors = np.linalg.eigh(covariance_matrix)
         asc_indices = np.argsort(eigenvalues)  # ascending
@@ -38,5 +41,8 @@ class PCA:
         :return: transformed (projected) data instances (projected data matrix)
         this function should utilize self.projection_matrix for the operations
         """
-        x_standardized = (x - np.mean(x, axis=0)) / np.std(x, axis=0)
+        mean = np.mean(x, axis=0)
+        std = np.std(x, axis=0)
+        std[std == 0] = 1  # div by 0 caused some problmes
+        x_standardized = (x - mean) / std
         return np.dot(x_standardized, self.projection_matrix)
